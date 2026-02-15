@@ -16,41 +16,58 @@ class TransactionCubit extends Cubit<TransactionState> {
     required this.addTransaction,
     required this.getTransactions,
     required this.riskAnalyzer,
-  }) : super(TransactionInitial());
+  }) : super(const TransactionState());
 
   Future<void> loadTransactions() async {
-    emit(TransactionLoading());
+    emit(state.copyWith(status: TransactionStatus.loading));
 
     final result = await getTransactions(NoParams());
 
-    result.fold((failure) => emit(TransactionError(failure.message)), (
-      transactions,
-    ) {
-      final updatedTransactions = transactions.map((t) {
-        final score = riskAnalyzer.calculateRiskScore(t.amount);
-        return Transaction(
-          id: t.id,
-          title: t.title,
-          amount: t.amount,
-          createdAt: t.createdAt,
-          riskScore: score,
-        );
-      }).toList();
+    result.fold(
+      (failure) => emit(
+        state.copyWith(
+          status: TransactionStatus.error,
+          errorMessage: failure.message,
+        ),
+      ),
+      (transactions) {
+        final updatedTransactions = transactions.map((t) {
+          final score = riskAnalyzer.calculateRiskScore(t.amount);
+          return Transaction(
+            id: t.id,
+            title: t.title,
+            amount: t.amount,
+            createdAt: t.createdAt,
+            riskScore: score,
+          );
+        }).toList();
 
-      emit(TransactionLoaded(updatedTransactions));
-    });
+        emit(
+          state.copyWith(
+            status: TransactionStatus.success,
+            transactions: updatedTransactions,
+            errorMessage: null,
+          ),
+        );
+      },
+    );
   }
 
   Future<void> addNewTransaction(String title, double amount) async {
-    emit(TransactionLoading());
+    emit(state.copyWith(status: TransactionStatus.loading));
 
     final result = await addTransaction(
       AddTransactionParams(title: title, amount: amount),
     );
 
-    result.fold((failure) => emit(TransactionError(failure.message)), (_) {
-      emit(TransactionAdded());
-      loadTransactions();
-    });
+    result.fold(
+      (failure) => emit(
+        state.copyWith(
+          status: TransactionStatus.error,
+          errorMessage: failure.message,
+        ),
+      ),
+      (_) => loadTransactions(),
+    );
   }
 }

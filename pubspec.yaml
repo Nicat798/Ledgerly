@@ -51,6 +51,9 @@ dependencies:
   # Functional Programming
   dartz: ^0.10.1
   
+  # State Equality
+  equatable: ^2.0.5
+  
   # UUID Generator
   uuid: ^4.5.1
 

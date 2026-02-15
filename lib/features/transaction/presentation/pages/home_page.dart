@@ -32,58 +32,54 @@ class HomePageView extends StatelessWidget {
       ),
       body: BlocBuilder<TransactionCubit, TransactionState>(
         builder: (context, state) {
-          if (state is TransactionLoading) {
+          if (state.status == TransactionStatus.loading) {
             return const Center(child: CircularProgressIndicator());
           }
 
-          if (state is TransactionError) {
-            return Center(child: Text(state.message));
+          if (state.status == TransactionStatus.error) {
+            return Center(child: Text(state.errorMessage ?? 'Error'));
           }
 
-          if (state is TransactionLoaded) {
-            if (state.transactions.isEmpty) {
-              return const Center(child: Text('No transactions yet'));
-            }
+          if (state.transactions.isEmpty) {
+            return const Center(child: Text('No transactions yet'));
+          }
 
-            return ListView.builder(
-              padding: const EdgeInsets.all(16),
-              itemCount: state.transactions.length,
-              itemBuilder: (context, index) {
-                final transaction = state.transactions[index];
-                return Card(
-                  margin: const EdgeInsets.only(bottom: 12),
-                  child: ListTile(
-                    title: Text(transaction.title),
-                    subtitle: Text(
-                      transaction.createdAt.toString().substring(0, 16),
-                    ),
-                    trailing: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          '\$${transaction.amount.toStringAsFixed(2)}',
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          'Risk: ${(transaction.riskScore * 100).toInt()}%',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: _getRiskColor(transaction.riskScore),
-                          ),
-                        ),
-                      ],
-                    ),
+          return ListView.builder(
+            padding: const EdgeInsets.all(16),
+            itemCount: state.transactions.length,
+            itemBuilder: (context, index) {
+              final transaction = state.transactions[index];
+              return Card(
+                margin: const EdgeInsets.only(bottom: 12),
+                child: ListTile(
+                  title: Text(transaction.title),
+                  subtitle: Text(
+                    transaction.createdAt.toString().substring(0, 16),
                   ),
-                );
-              },
-            );
-          }
-
-          return const SizedBox();
+                  trailing: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        '\$${transaction.amount.toStringAsFixed(2)}',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        'Risk: ${(transaction.riskScore * 100).toInt()}%',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: _getRiskColor(transaction.riskScore),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(
@@ -118,7 +114,10 @@ class HomePageView extends StatelessWidget {
             const SizedBox(height: 12),
             TextField(
               controller: amountController,
-              decoration: const InputDecoration(labelText: 'Amount'),
+              decoration: const InputDecoration(
+                labelText: 'Amount (USD)',
+                prefixText: '\$ ',
+              ),
               keyboardType: TextInputType.number,
             ),
           ],
