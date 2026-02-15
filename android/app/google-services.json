@@ -1,32 +1,13 @@
 {
   "project_info": {
-    "project_number": "683828119896",
-    "project_id": "aquacare-55ba6",
-    "storage_bucket": "aquacare-55ba6.firebasestorage.app"
+    "project_number": "704021297243",
+    "project_id": "ledgerly-c051a",
+    "storage_bucket": "ledgerly-c051a.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:683828119896:android:8eef203fb881d3c653bd2d",
-        "android_client_info": {
-          "package_name": "aquacare.appitech.app"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyD1jelOEZhn4mMjOsq3vJ7sn_EDrd4qqNw"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:683828119896:android:836d327873b5d0ef53bd2d",
+        "mobilesdk_app_id": "1:704021297243:android:5bc23d13dc9790e7b7677e",
         "android_client_info": {
           "package_name": "com.example.ledgerly"
         }
@@ -34,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD1jelOEZhn4mMjOsq3vJ7sn_EDrd4qqNw"
+          "current_key": "AIzaSyCkPK_9W9DY-Z70YAAoLb26PEbMPMQ-WMM"
         }
       ],
       "services": {

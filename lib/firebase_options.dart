@@ -41,48 +41,47 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBcKsCzBCot1FoGbFmt-wq1w-FDESSVlHk',
-    appId: '1:683828119896:web:3412851ba290a52953bd2d',
-    messagingSenderId: '683828119896',
-    projectId: 'aquacare-55ba6',
-    authDomain: 'aquacare-55ba6.firebaseapp.com',
-    storageBucket: 'aquacare-55ba6.firebasestorage.app',
-    measurementId: 'G-ZMYQWCF0RY',
+    apiKey: 'AIzaSyDyhzaYs4_mU6sio4M9TgeHHACkf1BhKwc',
+    appId: '1:704021297243:web:db933170329a125eb7677e',
+    messagingSenderId: '704021297243',
+    projectId: 'ledgerly-c051a',
+    authDomain: 'ledgerly-c051a.firebaseapp.com',
+    storageBucket: 'ledgerly-c051a.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD1jelOEZhn4mMjOsq3vJ7sn_EDrd4qqNw',
-    appId: '1:683828119896:android:836d327873b5d0ef53bd2d',
-    messagingSenderId: '683828119896',
-    projectId: 'aquacare-55ba6',
-    storageBucket: 'aquacare-55ba6.firebasestorage.app',
+    apiKey: 'AIzaSyCkPK_9W9DY-Z70YAAoLb26PEbMPMQ-WMM',
+    appId: '1:704021297243:android:5bc23d13dc9790e7b7677e',
+    messagingSenderId: '704021297243',
+    projectId: 'ledgerly-c051a',
+    storageBucket: 'ledgerly-c051a.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCzeAya5oRjn_DspMsY3xkzP71_4zjwrr0',
-    appId: '1:683828119896:ios:2d293115c060655853bd2d',
-    messagingSenderId: '683828119896',
-    projectId: 'aquacare-55ba6',
-    storageBucket: 'aquacare-55ba6.firebasestorage.app',
+    apiKey: 'AIzaSyDsxXDmIj_63TBnEL5-ww3F2S1l8GikWl0',
+    appId: '1:704021297243:ios:62d583f58ace6b2ab7677e',
+    messagingSenderId: '704021297243',
+    projectId: 'ledgerly-c051a',
+    storageBucket: 'ledgerly-c051a.firebasestorage.app',
     iosBundleId: 'com.example.ledgerly',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCzeAya5oRjn_DspMsY3xkzP71_4zjwrr0',
-    appId: '1:683828119896:ios:2d293115c060655853bd2d',
-    messagingSenderId: '683828119896',
-    projectId: 'aquacare-55ba6',
-    storageBucket: 'aquacare-55ba6.firebasestorage.app',
+    apiKey: 'AIzaSyDsxXDmIj_63TBnEL5-ww3F2S1l8GikWl0',
+    appId: '1:704021297243:ios:62d583f58ace6b2ab7677e',
+    messagingSenderId: '704021297243',
+    projectId: 'ledgerly-c051a',
+    storageBucket: 'ledgerly-c051a.firebasestorage.app',
     iosBundleId: 'com.example.ledgerly',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBcKsCzBCot1FoGbFmt-wq1w-FDESSVlHk',
-    appId: '1:683828119896:web:686d679b8cae448953bd2d',
-    messagingSenderId: '683828119896',
-    projectId: 'aquacare-55ba6',
-    authDomain: 'aquacare-55ba6.firebaseapp.com',
-    storageBucket: 'aquacare-55ba6.firebasestorage.app',
-    measurementId: 'G-431FQJCMJD',
+    apiKey: 'AIzaSyDyhzaYs4_mU6sio4M9TgeHHACkf1BhKwc',
+    appId: '1:704021297243:web:9ebef30b1279b195b7677e',
+    messagingSenderId: '704021297243',
+    projectId: 'ledgerly-c051a',
+    authDomain: 'ledgerly-c051a.firebaseapp.com',
+    storageBucket: 'ledgerly-c051a.firebasestorage.app',
   );
+
 }
